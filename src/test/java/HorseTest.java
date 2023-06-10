@@ -33,6 +33,17 @@ class HorseTest {
     }
 
     @Test
+    void throwExceptionWhenSpeedIsNegative() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Horse("Some Name", -46, 0));
+    }
+
+    @Test
+    void checkExceptionMessageWhenSpeedIsNegative() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse("Some Name", -46, 0));
+        assertEquals("Speed cannot be negative.", exception.getMessage());
+    }
+
+    @Test
     void getName() {
     }
 
