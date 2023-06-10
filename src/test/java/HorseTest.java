@@ -95,7 +95,4 @@ class HorseTest {
     void move() {
     }
 
-    @Test
-    void getRandomDouble() {
-    }
 }
