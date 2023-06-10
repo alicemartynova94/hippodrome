@@ -42,6 +42,15 @@ class HorseTest {
         Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse("Some Name", -46, 0));
         assertEquals("Speed cannot be negative.", exception.getMessage());
     }
+    @Test
+    void throwExceptionWhenDistanceIsNegative() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Horse("Some Name", 1, -78));
+    }
+    @Test
+    void checkExceptionMessageWhenDistanceIsNegative() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Horse("Some Name", 0, -78));
+        assertEquals("Distance cannot be negative.", exception.getMessage());
+    }
 
     @Test
     void getName() {
