@@ -2,11 +2,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@ExtendWith(MockitoExtension.class)
 class HorseTest {
     private static Horse HORSE_WITH_THREE_PARAM;
     private static Horse HORSE_WITH_TWO_PARAM;
@@ -93,6 +99,10 @@ class HorseTest {
 
     @Test
     void move() {
+        try (MockedStatic<Horse> horseMockedStatic = Mockito.mockStatic(Horse.class)) {
+            HORSE_WITH_THREE_PARAM.move();
+            horseMockedStatic.verify(() -> Horse.getRandomDouble(0.2, 0.9));
+        }
     }
 
 }
