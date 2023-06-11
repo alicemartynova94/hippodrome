@@ -98,7 +98,7 @@ class HorseTest {
     }
 
     @Test
-    void move() {
+    void moveMethodCallsGetRandomDouble() {
         try (MockedStatic<Horse> horseMockedStatic = Mockito.mockStatic(Horse.class)) {
             HORSE_WITH_THREE_PARAM.move();
             horseMockedStatic.verify(() -> Horse.getRandomDouble(0.2, 0.9));
