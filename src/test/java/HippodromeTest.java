@@ -30,6 +30,11 @@ class HippodromeTest {
     void throwExceptionWhenListInConstructorIsEmpty() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new Hippodrome(new ArrayList<>()));
     }
+    @Test
+    void checkExceptionMessageWhenConstructorListEmpty() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () -> new Hippodrome(new ArrayList<>()));
+        assertEquals("Horses cannot be empty.", exception.getMessage());
+    }
 
     void getHorses() {
     }
