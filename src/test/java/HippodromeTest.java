@@ -36,37 +36,37 @@ class HippodromeTest {
 
     @Test
     void getHorses() {
-        List<Horse> horsesList = new ArrayList<>(30);
-        horsesList.add(new Horse("A", 10, 100));
-        horsesList.add(new Horse("B", 20, 200));
-        horsesList.add(new Horse("C", 30, 300));
-        horsesList.add(new Horse("D", 40, 400));
-        horsesList.add(new Horse("E", 50, 500));
-        horsesList.add(new Horse("F", 60, 600));
-        horsesList.add(new Horse("G", 70, 700));
-        horsesList.add(new Horse("H", 80, 800));
-        horsesList.add(new Horse("I", 90, 900));
-        horsesList.add(new Horse("J", 100, 1000));
-        horsesList.add(new Horse("K", 110, 1100));
-        horsesList.add(new Horse("L", 120, 1200));
-        horsesList.add(new Horse("M", 130, 1300));
-        horsesList.add(new Horse("N", 140, 1400));
-        horsesList.add(new Horse("O", 150, 1500));
-        horsesList.add(new Horse("P", 160, 1600));
-        horsesList.add(new Horse("Q", 170, 1700));
-        horsesList.add(new Horse("R", 180, 1800));
-        horsesList.add(new Horse("S", 190, 1900));
-        horsesList.add(new Horse("T", 200, 2000));
-        horsesList.add(new Horse("U", 210, 2100));
-        horsesList.add(new Horse("V", 220, 2200));
-        horsesList.add(new Horse("W", 230, 2300));
-        horsesList.add(new Horse("X", 240, 2400));
-        horsesList.add(new Horse("Y", 250, 2500));
-        horsesList.add(new Horse("Z", 260, 2600));
-        horsesList.add(new Horse("AA", 270, 2700));
-        horsesList.add(new Horse("AB", 280, 2800));
-        horsesList.add(new Horse("AC", 290, 2900));
-        horsesList.add(new Horse("AD", 300, 3000));
+        List<Horse> horsesList = List.of(
+                new Horse("A", 10, 100),
+                new Horse("B", 20, 200),
+                new Horse("C", 30, 300),
+                new Horse("D", 40, 400),
+                new Horse("E", 50, 500),
+                new Horse("F", 60, 600),
+                new Horse("G", 70, 700),
+                new Horse("H", 80, 800),
+                new Horse("I", 90, 900),
+                new Horse("J", 100, 1000),
+                new Horse("K", 110, 1100),
+                new Horse("L", 120, 1200),
+                new Horse("M", 130, 1300),
+                new Horse("N", 140, 1400),
+                new Horse("O", 150, 1500),
+                new Horse("P", 160, 1600),
+                new Horse("Q", 170, 1700),
+                new Horse("R", 180, 1800),
+                new Horse("S", 190, 1900),
+                new Horse("T", 200, 2000),
+                new Horse("U", 210, 2100),
+                new Horse("V", 220, 2200),
+                new Horse("W", 230, 2300),
+                new Horse("X", 240, 2400),
+                new Horse("Y", 250, 2500),
+                new Horse("Z", 260, 2600),
+                new Horse("AA", 270, 2700),
+                new Horse("AB", 280, 2800),
+                new Horse("AC", 290, 2900),
+                new Horse("AD", 300, 3000));
         Hippodrome hippodrome = new Hippodrome(horsesList);
         assertEquals(horsesList, hippodrome.getHorses());
     }
