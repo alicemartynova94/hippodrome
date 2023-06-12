@@ -1,9 +1,9 @@
 <Configuration status="ERROR">
     <Appenders>
-        <RollingFile name="LogToFile" fileName="logs/hippodrome.log"
+        <RollingFile name="LogFile" fileName="logs/hippodrome.log"
                      filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log"
                      ignoreExeptions="false">
-            <PatternLayout pattern="%d %-5p %c %F: %m%n"/>
+            <PatternLayout pattern="%d %-5p %C{1}: %m%n"/>
             <TimeBasedTriggeringPolicy/>
             <DefaultRollingStrategy>
                 <Delete basePath="logs" maxDepth="2">
@@ -15,7 +15,7 @@
     </Appenders>
     <Loggers>
         <Root level="ALL">
-            <AppenderRef ref="LogToFile"/>
+            <AppenderRef ref="LogFile"/>
         </Root>
     </Loggers>
 </Configuration>
