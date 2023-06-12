@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
@@ -104,10 +105,16 @@ class HorseTest {
     }
 
     @ParameterizedTest
-    void move() {
+    @CsvSource({
+            "0.3, 33.0",
+            "0.09, 33.9",
+            "0.1, 34.9"
+    })
+    void move(double randomDouble, double result) {
         try (MockedStatic<Horse> horseMockedStatic = Mockito.mockStatic(Horse.class)) {
+            horseMockedStatic.when(() -> Horse.getRandomDouble(0.2, 0.9)).thenReturn(randomDouble);
             HORSE_WITH_THREE_PARAM.move();
-            horseMockedStatic.verify(() -> Horse.getRandomDouble(0.2, 0.9));
+            assertEquals(result, HORSE_WITH_THREE_PARAM.getDistance());
         }
     }
 
