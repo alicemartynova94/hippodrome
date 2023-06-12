@@ -1,21 +1,7 @@
-<Configuration status="ERROR">
-    <Appenders>
-        <RollingFile name="LogToFile" fileName="logs/hippodrome.log"
-                     filePattern="logs/hippodrome.%d{yyyy-MM-dd}.log"
-                     ignoreExeptions="false">
-            <PatternLayout pattern="%d %-5p %c: %m%n"/>
-            <TimeBasedTriggeringPolicy/>
-            <DefaultRollingStrategy>
-                <Delete basePath="logs" maxDepth="2">
-                    <IfFileName glob="hipodrome.*.log /"/>
-                    <IfLastModified age="7d"/>
-                </Delete>
-            </DefaultRollingStrategy>
-        </RollingFile>
-    </Appenders>
-    <Loggers>
-    <Root level="ALL">
-        <AppenderRef ref="LogToFile"/>
-    </Root>
-</Loggers>
-        </Configuration>
+log4j.rootLogger=DEBUG,file
+
+
+log4j.appender.file=org.apache.log4j.FileAppender
+log4j.appender.file.File=logs/hippodrome.log
+log4j.appender.file.layout=org.apache.log4j.PatternLayout
+log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss}
